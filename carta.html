@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ventana Pixelada</title>
+
+    <!-- Tailwind CSS vía CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuente pixelada -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- diseño -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css">
+    <!-- minify -->
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <!-- latest -->
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <!-- core style only -->
+    <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+
+
+  <!-- Configurar Tailwind para usar la fuente pixelada -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            pixel: ['"Press Start 2P"', 'monospace']
+          },
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white flex items-center justify-center min-h-screen font-pixel">
+
+  <div class="relative bg-black p-1 border-[16px] rounded-lg border-black shadow-[inset_0_0_0_4px_#ffffff] w-[700px] h-[650px]">
+
+    
+
+    <!-- Contenido -->
+    <div class=" h-[calc(100%-40px)] p-4 relative">
+      
+        
+        <div class="grid grid-cols-5 grid-rows-7 h-full gap-3">
+
+            <!-- pantalla del menu -->
+            <div id="pantalla-puerta" class="col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center place-items-center flex justify-center ">
+                
+                    <button id="puerta" class=" align-center "> <img src="botones/puerta_cerrada.png" onmouseover="this.src='botones/puerta_abierta.png'" onmouseout="this.src='botones/puerta_cerrada.png'"> </button>
+                    
+            </div>
+
+            <!-- fin pantalla del menu  -->
+
+            <!-- pantalla patio-->
+            <div id="pantalla-patio" class="col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/patio.png)] bg-cover bg-center place-items-center flex justify-center hidden ">
+            
+                <img src="icons/cuki_gif.gif" class="w-[130px] absolute bottom-[220px] left-[135px] "> 
+                <button id="cambiala" class="nes-btn isprimary absolute top-[30px] right-[20px]"> cambiala x un conejito </button>
+
+                    
+            </div>
+
+            <div id="pantalla-conejito" class="col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/patio.png)] bg-cover bg-center place-items-center flex justify-center hidden ">
+            
+                <img src="elementos/conejito_gif.gif" class="w-[260px] absolute bottom-[220px] left-[135px] "> 
+                <button id="conejito-menu" class="nes-btn isprimary absolute top-[30px] right-[20px]"> volver al inicio</button>
+
+                    
+            </div>
+
+
+
+            <!-- fin pantalla del menu  -->
+
+            
+            <div class="col-span-5 row-span-2 row-start-6  rounded-lg  ">
+                
+            <!-- fin pantalla del menu  -->
+                
+                <div id="abajo-puerta" class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white">
+                    <div class=" col-span-2 place-items-center bg-[#ffffff]"> 
+                        <img src="icons/icon_sorpresa.png" class="w-[60%] align-center "> 
+                    </div>
+                    <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
+                        
+                            <p class="p-5"> por preparar todo me olvide tu carta en el patio :( sal a traerla porfa</p>
+                        
+                    </div>
+                </div>
+                 <!-- fin parte de abajo  -->
+
+                <div id="abajo-patio" class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white hidden">
+                    <div class=" col-span-2 place-items-center  bg-[#ffffff]"> 
+                        <img src="icons/llanto_gif.gif" class="w-[60%] align-center "> 
+                    </div>
+                    <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
+                        
+                            <p class="p-5">NOOOOOOOOO, sabia que debi entrarla antes, ves que la cuki es maligna? </p>
+                        
+                    </div>
+                </div>
+
+                <div id="abajo-conejito" class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white hidden">
+                    <div class=" col-span-2 place-items-center  bg-[#ffffff]"> 
+                        <img src="icons/icon_triste.png" class="w-[60%] align-center "> 
+                    </div>
+                    <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
+                        
+                            <p class="p-5">por lo menos es tierno, pero ahora tendras que buscar la copia de la carta que deje escondida porsiaca </p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            
+           
+
+
+
+
+
+        </div>
+    
+    </div>
+
+  </div>
+
+  <script>
+    // Obtener referencias a los elementos
+    const pantallaPuerta = document.getElementById('pantalla-puerta');
+    const pantallaPatio = document.getElementById('pantalla-patio');
+    const puerta = document.getElementById('puerta');
+    const abajoPuerta = document.getElementById('abajo-puerta');
+    const abajoPatio = document.getElementById('abajo-patio');
+    const cambiala = document.getElementById('cambiala');
+    const niModo = document.getElementById('ni-modo');
+    const pantallaConejito = document.getElementById('pantalla-conejito');
+    const abajoConejito = document.getElementById('abajo-conejito');
+
+
+    // Función para cambiar de pantalla
+    function mostrarPantallaPatio() {
+        pantallaPuerta.classList.add('hidden');
+        pantallaPatio.classList.remove('hidden');
+        abajoPuerta.classList.add('hidden');
+        abajoPatio.classList.remove('hidden');
+    }
+    // Función para cambiar a pantalla de conejito
+    function mostrarPantallaConejito() {
+        pantallaPatio.classList.add('hidden');
+        pantallaConejito.classList.remove('hidden');
+        abajoPatio.classList.add('hidden');
+        abajoConejito.classList.remove('hidden');
+    }
+
+
+    // Asignar evento al botón de la puerta
+    puerta.addEventListener('click', mostrarPantallaPatio);
+    // Asignar evento al botón de cambiar a conejito
+    cambiala.addEventListener('click', mostrarPantallaConejito);
+    </script>
+</body>
+</html>

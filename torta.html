@@ -1,0 +1,99 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ventana Pixelada</title>
+
+    <!-- Tailwind CSS vía CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fuente pixelada -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+
+    <!-- Tailwind config -->
+    <script>
+        tailwind.config = {
+        theme: {
+            extend: {
+            fontFamily: {
+                pixel: ['"Press Start 2P"', 'monospace']
+            },
+            }
+        }
+        }
+    </script>
+
+    <style>
+        #torta {
+        position: relative;
+        }
+        #encendedor-img {
+        cursor: grab;
+        z-index: 10;
+        }
+    </style>
+    </head>
+    <body class="bg-white flex items-center justify-center min-h-screen font-pixel">
+
+    <div class="relative bg-black p-1 border-[16px] rounded-lg border-black shadow-[inset_0_0_0_4px_#ffffff] w-[700px] h-[650px]">
+        <div class="h-[calc(100%-40px)] p-4 relative">
+        <div class="grid grid-cols-5 grid-rows-7 h-full gap-3">
+            
+            <!-- pantalla del menu -->
+            <div id="pantalla-torta" class="col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center flex align-center justify-center place-items-center relative">
+            
+            <!-- Imagen de la torta -->
+            <button id="torta">
+                <img id="torta-img" src="elementos/torta_apagada.png" class="w-[300px] h-auto object-cover">
+            </button>
+
+            <!-- Encendedor arrastrable -->
+            <img id="encendedor-img" src="elementos/encendedor.png" draggable="true" class="h-[100px] absolute bottom-4 right-4" />
+
+            </div>
+            <!-- fin pantalla del menu -->
+
+            <div class="col-span-5 row-span-2 row-start-6 rounded-lg">
+            <div class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white">
+                <div class="col-span-2 place-items-center rounded-lg">
+                <img src="icons/icon_carnet.png" class="w-full align-center"> 
+                </div>
+                <div class="col-span-5 col-start-3 bg-[#ffffff]">
+                <p class="p-5">parecia una foto mia? casi, pero tienes que prenderla!</p>
+                </div>
+            </div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+
+    <!-- JavaScript para drag and drop -->
+    <script>
+        const encendedor = document.getElementById('encendedor-img');
+        const torta = document.getElementById('torta');
+        const tortaImg = document.getElementById('torta-img');
+
+        encendedor.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData("text/plain", "encendedor");
+        });
+
+        torta.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        });
+
+        torta.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const data = e.dataTransfer.getData("text/plain");
+        if (data === "encendedor") {
+            // Cambia la imagen de la torta
+            tortaImg.src = "elementos/torta.gif";
+        }
+        });
+    </script>
+    </body>
+    </html>
