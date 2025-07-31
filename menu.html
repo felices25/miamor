@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Ventana Pixelada</title>
 
-    <!-- Tailwind CSS vía CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ventana Pixelada</title>
+
+  <!-- Tailwind CSS vía CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Fuente pixelada -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- diseño -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css">
-    <!-- minify -->
-    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
-    <!-- latest -->
-    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
-    <!-- core style only -->
-    <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+  <!-- diseño -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css">
+  <!-- minify -->
+  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+  <!-- latest -->
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+  <!-- core style only -->
+  <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
 
 
   <!-- Configurar Tailwind para usar la fuente pixelada -->
@@ -41,53 +42,80 @@
     }
   </script>
 </head>
+
 <body class="bg-white flex items-center justify-center min-h-screen font-pixel">
 
-  <div class="relative bg-black p-1 border-[16px] rounded-lg border-black shadow-[inset_0_0_0_4px_#ffffff] w-[700px] h-[650px]">
+  <section>
+    <button type="button" class="nes-btn is-error absolute top-2 right-2"
+      onclick="document.getElementById('menu-esquina').showModal();">
+      ?
+    </button>
+    <dialog class="nes-dialog is-rounded" id="menu-esquina">
+      <form method="dialog">
+        <p class="title"> BOTON DE EMERGENCIA </p>
+        <br>
+        <p>volver al inicio?</p>
+        <br>
+        <menu class="dialog-menu">
+          <button class="nes-btn">No</button>
+          <button class="nes-btn is-primary">Si</button>
+        </menu>
+      </form>
+    </dialog>
+  </section>
 
-    
+  <div
+    class="relative bg-black p-1 border-[16px] rounded-lg border-black shadow-[inset_0_0_0_4px_#ffffff] w-[700px] h-[650px]">
 
     <!-- Contenido -->
     <div class=" h-[calc(100%-40px)] p-4 relative">
-      
-        
-        <div class="grid grid-cols-5 grid-rows-7 h-full gap-3">
 
-            <!-- pantalla del menu -->
-            <div id="pantalla-menu" class="col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/menu1.png)] bg-cover bg-center">
-                    
-                    <a href="calendario.html" class="text-[#e7b79c] absolute bottom-[438px] left-[223px] hover:text-[#ffffff]"> <img src="botones/calendario.png"> </a>
-                    <a href="#" class="text-[#e7b79c] absolute bottom-[425px] left-[121px] hover:text-[#ffffff]"> <img src="botones/carta.png"></a>
-                    <a href="#" class="text-[#e7b79c] absolute bottom-[405px] left-[462px] hover:text-[#ffffff]"><img src="botones/fotos.png"></a>
-                    <a href="#" class="text-[#e7b79c] absolute bottom-[316px] left-[157px] hover:text-[#ffffff]"><img src="botones/musica.png"></a>
-                    <a href="#" class="text-[#e7b79c] absolute bottom-[316px] left-[292px] hover:text-[#ffffff]"><img src="botones/musica2.png"></a>
 
-                    <a href="#" class="text-[#e7b79c] absolute bottom-[348px] left-[380px] hover:text-[#ffffff]"><img src="botones/telefono.png"></a>
-                    <a href="#" class="text-[#e7b79c] absolute bottom-[405px] left-[415px] hover:text-[#ffffff]"><img src="botones/torta.png"></a>
-            </div>
+      <div class="grid grid-cols-5 grid-rows-7 h-full gap-3">
 
-            <!-- fin pantalla del menu  -->
+        <!-- pantalla del menu -->
+        <div id="pantalla-menu"
+          class="  col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/menu1.png)] bg-cover bg-center">
 
-            
-            <div class="col-span-5 row-span-2 row-start-6  rounded-lg  ">
-                <!-- parte de abajo menu inicial   -->
-                <div class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white">
-                    <div class=" col-span-2 place-items-center rounded-lg ">
-                        <img src="icons/icon_carnet.png" class="w-full align-center "> 
-                    </div>
-                    <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
-                        
-                            <p class="p-10">Bienvenida!, este es el menu principal, escoge algun elemento para comenzar</p>
-                        
-                    </div>
-                </div>
-                <!-- fin parte de abajo  -->
-            </div>
-            
+          <a href="calendario.html"
+            class="text-[#e7b79c] absolute bottom-[438px] left-[223px] hover:text-[#ffffff] zoom"> <img
+              src="botones/calendario.png"> </a>
+          <a href="carta.html" class="text-[#e7b79c] absolute bottom-[425px] left-[121px] hover:text-[#ffffff] zoom">
+            <img src="botones/carta.png"></a>
+          <a href="fotos.html"
+            class="text-[#e7b79c] absolute bottom-[405px] left-[462px] hover:text-[#ffffff] zoom"><img
+              src="botones/fotos.png"></a>
+          <a href="musica.html"
+            class="text-[#e7b79c] absolute bottom-[316px] left-[157px] hover:text-[#ffffff] zoom"><img
+              src="botones/musica.png"></a>
+          <a href="grabacion.html"
+            class="text-[#e7b79c] absolute bottom-[348px] left-[380px] hover:text-[#ffffff] zoom"><img
+              src="botones/telefono.png"></a>
+          <a href="torta.html"
+            class="text-[#e7b79c] absolute bottom-[405px] left-[415px] hover:text-[#ffffff] zoom"><img
+              src="botones/torta.png"></a>
         </div>
-    
+
+        <div id="abajo-menu" class="col-span-5 row-span-2 row-start-6  rounded-lg  ">
+          <div class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white">
+            <div class=" col-span-2 place-items-center rounded-lg ">
+              <img src="icons/icon_carnet.png" class="w-full align-center ">
+            </div>
+            <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
+
+              <p class="p-5">Encontraste el camino! bienvenida al menu principal, descubre los elementos escondidos y
+                haz clic en ellos</p>
+              
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
   </div>
 </body>
+
 </html>

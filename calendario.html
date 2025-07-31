@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ventana Pixelada</title>
 
     <!-- Tailwind CSS vía CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fuente pixelada -->
+    <!-- Fuente pixelada -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,204 +29,294 @@
     <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
 
 
-  <!-- Configurar Tailwind para usar la fuente pixelada -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            pixel: ['"Press Start 2P"', 'monospace']
-          },
+    <!-- Configurar Tailwind para usar la fuente pixelada -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        pixel: ['"Press Start 2P"', 'monospace']
+                    },
+                }
+            }
         }
-      }
-    }
-  </script>
+    </script>
 </head>
+
 <body class="bg-white flex items-center justify-center min-h-screen font-pixel">
-
-  <div class="relative bg-black p-1 border-[16px] rounded-lg border-black shadow-[inset_0_0_0_4px_#ffffff] w-[700px] h-[650px]">
-
     
+    <section>
+        <button type="button" class="nes-btn is-error absolute top-2 right-2"
+            onclick="document.getElementById('menu-esquina').showModal();">
+            ?
+        </button>
+        <dialog class="nes-dialog is-rounded" id="menu-esquina">
+            <form method="dialog">
+                <p class="title"> BOTON DE EMERGENCIA </p>
+                <br>
+                <p>volver al inicio?</p>
+                <br>
+                <menu class="dialog-menu">
+                    <button class="nes-btn">No</button>
+                    <button class="nes-btn is-primary">Si</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
 
-    <!-- Contenido -->
-    <div class=" h-[calc(100%-40px)] p-4 relative">
-      
-        
-    <div class="grid grid-cols-5 grid-rows-7 h-full gap-3">
+    <div
+        class="relative bg-black p-1 border-[16px] rounded-lg border-black shadow-[inset_0_0_0_4px_#ffffff] w-[700px] h-[650px]">
 
-        <!-- pantalla inicial calendario -->
-        <div id="pantalla-calendario" class=" flex justify-center items-center align-center  col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center">
-            <div class="grid justify-center grid-cols-1 grid-rows-3 gap-4">
-                    <div class="align-center ">
-                <button id="btn-corazon" type="button" class="nes-btn ">♡</button>
+
+
+        <!-- Contenido -->
+        <div class=" h-[calc(100%-40px)] p-4 relative">
+
+
+            <div class="grid grid-cols-5 grid-rows-7 h-full gap-3">
+
+                <!-- pantalla inicial calendario -->
+                <div id="pantalla-calendario"
+                    class=" flex justify-center items-center align-center  col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center">
+                    <div class="grid justify-center grid-cols-1 grid-rows-3 gap-4">
+                        <div class="align-center ">
+                            <button id="btn-corazon" type="button" class="nes-btn px-[30px]">˖⁺‧₊˚ ♡ ˚₊‧⁺˖</button>
+                        </div>
+                        <div class="align-center">
+                            <button id="btn-musica" type="button" class="nes-btn px-[25px]">⋆₊ ♫⋆｡♪ ₊˚♬ﾟ.</button>
+                        </div>
+                        <div class="align-center">
+                            <button id="btn-video" type="button" class="nes-btn px-[10px]">𖤓 ｡𖦹°‧ ⋆☀︎. °𖤓</button>
+                        </div>
+
                     </div>
-                <div class="align-center">
-                    <button id="btn-musica" type="button" class="nes-btn ">♫</button>
-                </div>
-                <div class="align-center">
-                    <button id="btn-video" type="button" class="nes-btn">📽️</button>
-                </div>
-            </div>
-                
-        </div>
 
-        <!-- pantalla cuenta regresiva 1 -->
-        <div id="pantalla-cuenta-regresiva-1" class=" hidden flex justify-center items-center align-center  col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center">
-            <div class="grid justify-center grid-cols-1 grid-rows-3 gap-4">
+                </div>
+
+                <!-- pantalla cuenta regresiva 1 -->
+                <div id="pantalla-cuenta-regresiva-1"
+                    class=" hidden flex justify-center items-center align-center  col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center">
+
+
                     <div class="nes-container with-title is-centered bg-[#ffffff]">
                         <p class="title">vernos!!!!! </p>
-                        <p>aca el numero de dias que faltan</p>
+                        <p id="vernos"></p>
                     </div>
-            </div>
-                
-        </div>
 
-        <!-- pantalla cuenta regresiva 2 -->
-        <div id="pantalla-cuenta-regresiva-2" class=" hidden flex justify-center items-center align-center  col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center">
-            <div class="grid justify-center grid-cols-1 grid-rows-3 gap-4">
+
+                </div>
+
+                <!-- pantalla cuenta regresiva 2 -->
+                <div id="pantalla-cuenta-regresiva-2"
+                    class=" hidden flex justify-center items-center align-center  col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center">
+
                     <div class="nes-container with-title is-centered bg-[#ffffff]">
                         <p class="title">concierto de macdemarco </p>
-                        <p>aca el numero de dias que faltan</p>
+                        <p id="macdemarco"></p>
                     </div>
-            </div>
-                
-        </div>
 
-        <!-- pantalla cuenta regresiva 3 -->
-        <div id="pantalla-cuenta-regresiva-3" class=" hidden flex justify-center items-center align-center  col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center">
-            <div class="grid justify-center grid-cols-1 grid-rows-3 gap-4">
+
+                </div>
+
+                <!-- pantalla cuenta regresiva 3 -->
+                <div id="pantalla-cuenta-regresiva-3"
+                    class=" hidden flex justify-center items-center align-center  col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center">
+
                     <div class="nes-container with-title is-centered bg-[#ffffff]">
                         <p class="title">connie baby es feliz!!</p>
-                        <p>aca el numero de dias que faltan</p>
+                        <p id="connie"></p>
                     </div>
+
+
+                </div>
+
+
+
+                <!-- cuadro de dialogo  -->
+
+                <div class="col-span-5 row-span-2 row-start-6  rounded-lg  ">
+                    <div id="cuadro-dialogo-calendario"
+                        class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white">
+                        <div class=" col-span-2 place-items-center  bg-[#ffffff] ">
+                            <img src="icons/icon_bailando.gif" class="w-[70%] align-center ">
+                        </div>
+                        <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
+
+                            <p class="p-5">yupiii encontraste las cuentas regresivas, todas son cosas emocionantes!
+                            </p>
+                            <a href="menu.html"
+                                class="nes-btn absolute bottom-[-20px] right-[20px] "> ir al menu</a>
+                        </div>
+                    </div>
+
+                    <div id="cuadro-dialogo-calendario-1"
+                        class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white hidden">
+                        <div class=" col-span-2 place-items-center  bg-[#ffffff] ">
+                            <img src="icons/icon_bailando.gif" class="w-[70%] align-center ">
+                        </div>
+                        <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
+
+                            <p class="p-5">POR FIN!!! </p>
+                            <button id="calendario-back-1"
+                                class=" nes-btn isprimary absolute bottom-[-20px] right-[20px]">
+                                < </button>
+
+                        </div>
+                    </div>
+
+                    <div id="cuadro-dialogo-calendario-2"
+                        class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white hidden">
+                        <div class=" col-span-2 place-items-center  bg-[#ffffff] ">
+                            <img src="icons/icon_bailando.gif" class="w-[70%] align-center ">
+                        </div>
+                        <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
+
+                            <p class="p-5"> YUPIII la manifestacion de las entradas funciono </p>
+                            <button id="calendario-back-2"
+                                class=" nes-btn isprimary absolute bottom-[-20px] right-[20px]">
+                                < </button>
+
+                        </div>
+                    </div>
+
+                    <div id="cuadro-dialogo-calendario-3"
+                        class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white hidden">
+                        <div class=" col-span-2 place-items-center  bg-[#ffffff] ">
+                            <img src="icons/icon_bailando.gif" class="w-[70%] align-center ">
+                        </div>
+                        <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
+
+                            <p class="p-5">este es incierto, si la tonta de la belly se escoge a si misma me caga</p>
+                            <button id="calendario-back-3"
+                                class=" nes-btn isprimary absolute bottom-[-20px] right-[20px]">
+                                < </button>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
-                
-        </div>
-        
-
-
-        <!-- cuadro de dialogo  -->
-
-        <div class="col-span-5 row-span-2 row-start-6  rounded-lg  ">
-            <div id="cuadro-dialogo-calendario" class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white">
-                <div class=" col-span-2 place-items-center  bg-[#ffffff] ">
-                    <img src="icons/icon_bailando.gif" class="w-[70%] align-center "> 
-                </div>
-                <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
-
-                        <p class="p-10">yupiii encontraste las cuentas regresivas, todas son cosas emocionantes! </p>
-                        <button  id="calendario-back-menu-principal " class=" nes-btn isprimary absolute bottom-[-20px] right-[20px]"> < </button>
-
-                </div>
-            </div>
-
-            <div id="cuadro-dialogo-calendario-1" class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white hidden">
-                <div class=" col-span-2 place-items-center  bg-[#ffffff] ">
-                    <img src="icons/icon_bailando.gif" class="w-[70%] align-center "> 
-                </div>
-                <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
-
-                        <p class="p-10">POR FIN!!!  </p>
-                        <button id="calendario-back-1" class="ir-atras nes-btn isprimary absolute bottom-[-20px] right-[20px]"> < </button>
-
-                </div>
-            </div>
-
-            <div id="cuadro-dialogo-calendario-2" class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white hidden">
-                <div class=" col-span-2 place-items-center  bg-[#ffffff] ">
-                    <img src="icons/icon_bailando.gif" class="w-[70%] align-center "> 
-                </div>
-                <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
-
-                        <p class="p-10"> YUPIII la manifestacion de las entradas funciono  </p>
-                        <button id="calendario-back-2" class="ir-atras nes-btn isprimary absolute bottom-[-20px] right-[20px]"> < </button>
-
-                </div>
-            </div>
-
-            <div id="cuadro-dialogo-calendario-3" class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white hidden">
-                <div class=" col-span-2 place-items-center  bg-[#ffffff] ">
-                    <img src="icons/icon_bailando.gif" class="w-[70%] align-center "> 
-                </div>
-                <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
-
-                        <p class="p-10">este es incierto, si la tonta de la belly se escoge a si misma me caga</p>
-                        <button id="calendario-back-3" class="ir-atras nes-btn isprimary absolute bottom-[-20px] right-[20px]"> < </button>
-
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         </div>
 
     </div>
-    
-    </div>
 
-  </div>
+    <script>
+        // Obtener los botones y la pantalla del calendario
+        const btnCorazon = document.getElementById('btn-corazon');
+        const btnMusica = document.getElementById('btn-musica');
+        const btnVideo = document.getElementById('btn-video');
+        const pantallaCalendario = document.getElementById('pantalla-calendario');
+        const pantallaCuentaRegresiva1 = document.getElementById('pantalla-cuenta-regresiva-1');
+        const pantallaCuentaRegresiva2 = document.getElementById('pantalla-cuenta-regresiva-2');
+        const pantallaCuentaRegresiva3 = document.getElementById('pantalla-cuenta-regresiva-3');
+        const cuadroDialogoCalendario = document.getElementById('cuadro-dialogo-calendario');
+        const cuadroDialogoCalendario1 = document.getElementById('cuadro-dialogo-calendario-1');
+        const cuadroDialogoCalendario2 = document.getElementById('cuadro-dialogo-calendario-2');
+        const cuadroDialogoCalendario3 = document.getElementById('cuadro-dialogo-calendario-3');
+        const calendarioBack1 = document.getElementById('calendario-back-1');
+        const calendarioBack2 = document.getElementById('calendario-back-2');
+        const calendarioBack3 = document.getElementById('calendario-back-3');
 
-  <script>
-    // Obtener los botones y la pantalla del calendario
-    const btnCorazon = document.getElementById('btn-corazon');
-    const btnMusica = document.getElementById('btn-musica');
-    const btnVideo = document.getElementById('btn-video');
-    const pantallaCalendario = document.getElementById('pantalla-calendario');
-    const pantallaCuentaRegresiva1 = document.getElementById('pantalla-cuenta-regresiva-1');
-    const pantallaCuentaRegresiva2 = document.getElementById('pantalla-cuenta-regresiva-2');
-    const pantallaCuentaRegresiva3 = document.getElementById('pantalla-cuenta-regresiva-3');
-    const cuadroDialogoCalendario = document.getElementById('cuadro-dialogo-calendario');
-    const cuadroDialogoCalendario1 = document.getElementById('cuadro-dialogo-calendario-1');
-    const cuadroDialogoCalendario2 = document.getElementById('cuadro-dialogo-calendario-2');
-    const cuadroDialogoCalendario3 = document.getElementById('cuadro-dialogo-calendario-3');
-    const calendarioBackMenuPrincipal = document.getElementById('calendario-back-menu-principal');
-    const calendarioBack1 = document.getElementById('calendario-back-1');
-    const calendarioBack2 = document.getElementById('calendario-back-2');
-    const calendarioBack3 = document.getElementById('calendario-back-3');
+        // Función para mostrar la pantalla de cuenta regresiva
+        function mostrarCuentaRegresiva1() {
+            pantallaCalendario.classList.add('hidden');
+            pantallaCuentaRegresiva1.classList.remove('hidden');
+            cuadroDialogoCalendario1.classList.remove('hidden');
+            cuadroDialogoCalendario.classList.add('hidden');
+        }
 
-    // Función para mostrar la pantalla de cuenta regresiva
-    function mostrarCuentaRegresiva1() {
-        pantallaCalendario.classList.add('hidden');
-        pantallaCuentaRegresiva1.classList.remove('hidden');
-        cuadroDialogoCalendario1.classList.remove('hidden');
-        cuadroDialogoCalendario.classList.add('hidden');
-    }
+        // Función para mostrar la pantalla de cuenta regresiva 2
+        function mostrarCuentaRegresiva2() {
+            pantallaCalendario.classList.add('hidden');
+            pantallaCuentaRegresiva2.classList.remove('hidden');
+            cuadroDialogoCalendario2.classList.remove('hidden');
+            cuadroDialogoCalendario.classList.add('hidden');
+        }
 
-    // Función para mostrar la pantalla de cuenta regresiva 2
-    function mostrarCuentaRegresiva2() {
-        pantallaCalendario.classList.add('hidden');
-        pantallaCuentaRegresiva2.classList.remove('hidden');
-        cuadroDialogoCalendario2.classList.remove('hidden');
-        cuadroDialogoCalendario.classList.add('hidden');
-    }
+        // Función para mostrar la pantalla de cuenta regresiva 3
+        function mostrarCuentaRegresiva3() {
+            pantallaCalendario.classList.add('hidden');
+            pantallaCuentaRegresiva3.classList.remove('hidden');
+            cuadroDialogoCalendario3.classList.remove('hidden');
+            cuadroDialogoCalendario.classList.add('hidden');
+        }
 
-    // Función para mostrar la pantalla de cuenta regresiva 3
-    function mostrarCuentaRegresiva3() {
-        pantallaCalendario.classList.add('hidden');
-        pantallaCuentaRegresiva3.classList.remove('hidden');
-        cuadroDialogoCalendario3.classList.remove('hidden');
-        cuadroDialogoCalendario.classList.add('hidden');
-    }
+        // Función para volver a la pantalla principal
+        function volverAPantallaPrincipal() {
+            pantallaCalendario.classList.remove('hidden');
+            pantallaCuentaRegresiva1.classList.add('hidden');
+            pantallaCuentaRegresiva2.classList.add('hidden');
+            pantallaCuentaRegresiva3.classList.add('hidden');
+            cuadroDialogoCalendario.classList.remove('hidden');
+            cuadroDialogoCalendario1.classList.add('hidden');
+            cuadroDialogoCalendario2.classList.add('hidden');
+            cuadroDialogoCalendario3.classList.add('hidden');
+        }
 
-    
+        // Asignar eventos a los botones
+        btnCorazon.addEventListener('click', mostrarCuentaRegresiva1);
+        btnMusica.addEventListener('click', mostrarCuentaRegresiva2);
+        btnVideo.addEventListener('click', mostrarCuentaRegresiva3);
+        calendarioBack1.addEventListener('click', volverAPantallaPrincipal);
+        calendarioBack2.addEventListener('click', volverAPantallaPrincipal);
+        calendarioBack3.addEventListener('click', volverAPantallaPrincipal);
 
-    // Asignar eventos a los botones
-    btnCorazon.addEventListener('click', mostrarCuentaRegresiva1);
-    btnMusica.addEventListener('click', mostrarCuentaRegresiva2);
-    btnVideo.addEventListener('click', mostrarCuentaRegresiva3);
-  </script>
+
+
+        var vernos = new Date("Sept 2, 2025").getTime();
+        var macdemarco = new Date("Apr 21, 2026").getTime();
+        var connie = new Date("Sept 17, 2025").getTime();
+
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance_vernos = vernos - now;
+            var distance_macdemarco = macdemarco - now;
+            var distance_connie = connie - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days_vernos = Math.floor(distance_vernos / (1000 * 60 * 60 * 24));
+            var hours_vernos = Math.floor((distance_vernos % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes_vernos = Math.floor((distance_vernos % (1000 * 60 * 60)) / (1000 * 60));
+
+            var days_macdemarco = Math.floor(distance_macdemarco / (1000 * 60 * 60 * 24));
+            var hours_macdemarco = Math.floor((distance_macdemarco % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes_macdemarco = Math.floor((distance_macdemarco % (1000 * 60 * 60)) / (1000 * 60));
+
+            var days_connie = Math.floor(distance_connie / (1000 * 60 * 60 * 24));
+            var hours_connie = Math.floor((distance_connie % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes_connie = Math.floor((distance_connie % (1000 * 60 * 60)) / (1000 * 60));
+
+            // Display the result in the element with id="vernos"
+            document.getElementById("vernos").innerHTML = days_vernos + "d " + hours_vernos + "h "
+                + minutes_vernos + "m ";
+
+            document.getElementById("macdemarco").innerHTML = days_macdemarco + "d " + hours_macdemarco + "h "
+                + minutes_macdemarco + "m ";
+            document.getElementById("connie").innerHTML = days_connie + "d " + hours_connie + "h "
+                + minutes_connie + "m ";
+
+            // If the count down is finished, write some text
+            if (distance_vernos < 0) {
+                clearInterval(x);
+                document.getElementById("vernos").innerHTML = "YA PASOOOOO";
+            }
+            if (distance_macdemarco < 0) {
+                clearInterval(x);
+                document.getElementById("macdemarco").innerHTML = "YA PASOOOOO";
+            }
+            if (distance_connie < 0) {
+                clearInterval(x);
+                document.getElementById("connie").innerHTML = "YA PASOOOOO";
+            }
+        }, 1000);
+    </script>
 </body>
+
 </html>

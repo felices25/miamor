@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Ventana Pixelada</title>
 
-    <!-- Tailwind CSS vía CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ventana Pixelada</title>
+
+  <!-- Tailwind CSS vía CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Fuente pixelada -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- diseño -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css">
-    <!-- minify -->
-    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
-    <!-- latest -->
-    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
-    <!-- core style only -->
-    <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+  <!-- diseño -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css">
+  <!-- minify -->
+  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+  <!-- latest -->
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+  <!-- core style only -->
+  <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
 
 
   <!-- Configurar Tailwind para usar la fuente pixelada -->
@@ -41,55 +42,252 @@
     }
   </script>
 </head>
+
 <body class="bg-white flex items-center justify-center min-h-screen font-pixel">
 
-  <div class="relative bg-black p-1 border-[16px] rounded-lg border-black shadow-[inset_0_0_0_4px_#ffffff] w-[700px] h-[650px]">
+  <section>
+    <button type="button" class="nes-btn is-error absolute top-2 right-2"
+      onclick="document.getElementById('menu-esquina').showModal();">
+      ?
+    </button>
+    <dialog class="nes-dialog is-rounded" id="menu-esquina">
+      <form method="dialog">
+        <p class="title"> BOTON DE EMERGENCIA </p>
+        <br>
+        <p>volver al inicio?</p>
+        <br>
+        <menu class="dialog-menu">
+          <button class="nes-btn">No</button>
+          <button class="nes-btn is-primary">Si</button>
+        </menu>
+      </form>
+    </dialog>
+  </section>
 
-    
+  <div
+    class="relative bg-black p-1 border-[16px] rounded-lg border-black shadow-[inset_0_0_0_4px_#ffffff] w-[700px] h-[650px]">
 
     <!-- Contenido -->
     <div class=" h-[calc(100%-40px)] p-4 relative">
-      
-        
-        <div class="grid grid-cols-5 grid-rows-7 h-full gap-3">
 
-            <!-- pantalla del menu -->
-            <div id="pantalla-musica" class="col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center flex align-center justify-center place-items-center">
-                    
-                <div class="grid justify-center grid-cols-1 grid-rows-2 gap-4">
-                        <div class="align-center ">
-                            <button id="tuyas" class="nes-btn "> ♫⋆｡♪ ₊˚♬ ﾟ tuyas ♫⋆｡♪ ₊˚♬ ﾟ </button>
-                        </div>
-                        <div class="align-center">
-                            <button id="mias" class="nes-btn px-[22px]"> ♫⋆｡♪ ₊˚♬ ﾟ mias ♫⋆｡♪ ₊˚♬ </button>
-                        </div>
-                    
-                </div>
+      <div class="grid grid-cols-5 grid-rows-7 h-full gap-3">
 
+        <!-- pantalla del menu -->
+        <div id="pantalla-musica"
+          class="col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center flex align-center justify-center place-items-center">
+
+          <div class="grid justify-center grid-cols-1 grid-rows-2 gap-4">
+            <div class="align-center ">
+              <button id="tuyas" class="nes-btn "> ♫⋆｡♪ ₊˚♬ ﾟ tuyas ♫⋆｡♪ ₊˚♬ ﾟ </button>
+            </div>
+            <div class="align-center">
+              <button id="mias" class="nes-btn px-[22px]"> ♫⋆｡♪ ₊˚♬ ﾟ mias ♫⋆｡♪ ₊˚♬ </button>
             </div>
 
-            <!-- fin pantalla del menu  -->
+          </div>
 
-            
-            <div class="col-span-5 row-span-2 row-start-6  rounded-lg  ">
-                <!-- parte de abajo menu inicial   -->
-                <div class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white">
-                    <div class=" col-span-2 place-items-center rounded-lg ">
-                        <img src="icons/icon_carnet.png" class="w-full align-center "> 
-                    </div>
-                    <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
-                        
-                            <p class="p-5">Bienvenida!, este es el menu principal, escoge algun elemento para comenzar</p>
-                        
-                    </div>
-                </div>
-                <!-- fin parte de abajo  -->
-            </div>
-            
         </div>
-    
+
+        <div id="pantalla-tuyas"
+          class="col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center flex align-center justify-center place-items-center hidden">
+
+          <div class="grid grid-cols-8 grid-rows-7 gap-4">
+            <div class="col-span-6 row-span-5 col-start-2 row-start-2">
+              <div class="nes-container with-title is-centered">
+                <p class="title">Tu top 3</p>
+                <p class="text-[#ffffff]">
+                  <label>
+                    <input type="radio" class="nes-radio is-dark song-option" name="karol"
+                      data-src="musica/karol.mp3" />
+
+                    <span class="text-[#ffffff] hover:underline">papasito </span>
+                  </label>
+                  <br>
+                  <label>
+                    <input type="radio" class="nes-radio is-dark song-option" name="clairo"
+                      data-src="musica/clairo.mp3" />
+                    <span class="text-[#ffffff] hover:underline">add up my love</span>
+                  </label>
+                  <label>
+                    <input type="radio" class="nes-radio is-dark song-option" name="marias"
+                      data-src="musica/marias.mp3" />
+                    <span class="text-[#ffffff] hover:underline">run your mouth  </span>
+                  </label>
+                </p>
+              </div>
+
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <div id="pantalla-mias"
+          class="col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center flex align-center justify-center place-items-center hidden">
+          <div class="grid grid-cols-8 grid-rows-7 gap-4">
+            <div class="col-span-6 row-span-5 col-start-2 row-start-2">
+              <div class="nes-container with-title is-centered ">
+
+                <p class="title">Mi top 3</p>
+                <p class="text-[#ffffff]">
+                  <label>
+                    <input type="radio" class="nes-radio is-dark song-option" name="1" data-src="songs/cancion1.mp3" />
+                    <span class="text-[#ffffff] hover:underline">cancion 1</span>
+                  </label>
+                  <br>
+                  <label>
+                    <input type="radio" class="nes-radio is-dark song-option" name="2" data-src="songs/cancion2.mp3" />
+                    <span class="text-[#ffffff] hover:underline">cancion 2</span>
+                  </label>
+                  <label>
+                    <input type="radio" class="nes-radio is-dark song-option" name="3" data-src="songs/cancion3.mp3" />
+                    <span class="text-[#ffffff] hover:underline"> cancion 3 </span>
+                  </label>
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+        <!-- fin pantalla del menu  -->
+
+
+        <div class="col-span-5 row-span-2 row-start-6  rounded-lg  ">
+          <!-- parte de abajo menu inicial   -->
+          <div id="abajo-inicial" class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white">
+            <div class=" col-span-2 place-items-center bg-[#ffffff]  ">
+              <img src="icons/icon_bailando.gif" class="w-[65%] align-center ">
+            </div>
+            <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
+
+              <p class="p-5">bienvenida a la parte musical del regalo, puedes dejarla de fondo mientras sigues
+                explorando</p>
+              <a href="menu.html" class="nes-btn absolute bottom-[-20px] right-[20px] "> ir al menu</a>
+
+            </div>
+          </div>
+
+          <div id="abajo-tuyas" class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white hidden">
+            <div class=" col-span-2 place-items-center bg-[#ffffff]  ">
+              <img src="icons/cabeza_gif.gif" class="w-[65%] align-center ">
+            </div>
+            <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
+
+              <p class="p-5">wow!!! que buenas canciones escogiste para tu top de canciones de este año</p>
+              <button id="musica-back-1" class=" nes-btn isprimary absolute bottom-[-20px] right-[20px]">
+                < </button>
+
+            </div>
+          </div>
+
+          <div id="abajo-mias" class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white hidden ">
+            <div class=" col-span-2 place-items-center bg-[#ffffff]  ">
+              <img src="icons/cabeza_gif.gif" class="w-[65%] align-center ">
+            </div>
+            <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
+
+              <p class="p-5">canciones de mi para ti</p>
+              <button id="musica-back-2" class=" nes-btn isprimary absolute bottom-[-20px] right-[20px]">
+                < </button>
+
+            </div>
+          </div>
+
+
+
+
+
+
+          <!-- fin parte de abajo  -->
+        </div>
+
+      </div>
+
     </div>
 
   </div>
+
+  <script>
+    const tuyas = document.getElementById('tuyas');
+    const mias = document.getElementById('mias');
+    const pantallaTuyas = document.getElementById('pantalla-tuyas');
+    const pantallaMias = document.getElementById('pantalla-mias');
+    const pantallaMusica = document.getElementById('pantalla-musica');
+    const abajoInicial = document.getElementById('abajo-inicial');
+    const abajoTuyas = document.getElementById('abajo-tuyas');
+    const abajoMias = document.getElementById('abajo-mias');
+    const musicaBack1 = document.getElementById('musica-back-1');
+    const musicaBack2 = document.getElementById('musica-back-2');
+
+    function togglePantallaTuyas() {
+      pantallaMusica.classList.add('hidden');
+      pantallaTuyas.classList.remove('hidden');
+      abajoInicial.classList.add('hidden');
+      abajoTuyas.classList.remove('hidden');
+    }
+
+    function togglePantallaMias() {
+      pantallaMusica.classList.add('hidden');
+      pantallaMias.classList.remove('hidden');
+      abajoInicial.classList.add('hidden');
+      abajoMias.classList.remove('hidden');
+    }
+
+
+
+    function volverAlInicio() {
+      pantallaMusica.classList.remove('hidden');
+      pantallaTuyas.classList.add('hidden');
+      pantallaMias.classList.add('hidden');
+      abajoInicial.classList.remove('hidden');
+      abajoTuyas.classList.add('hidden');
+      abajoMias.classList.add('hidden');
+    }
+
+    tuyas.addEventListener('click', togglePantallaTuyas);
+    mias.addEventListener('click', togglePantallaMias);
+    musicaBack1.addEventListener('click', volverAlInicio);
+    musicaBack2.addEventListener('click', volverAlInicio);
+
+    let currentAudio = null;
+    let currentRadio = null;
+
+    document.querySelectorAll('.song-option').forEach(radio => {
+      radio.addEventListener('click', () => {
+        const src = radio.getAttribute('data-src');
+
+        // Si ya hay audio sonando y se vuelve a hacer click en el mismo
+        if (currentRadio === radio && currentAudio && !currentAudio.paused) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+          currentRadio.checked = false;
+          currentAudio = null;
+          currentRadio = null;
+          return;
+        }
+
+        // Si hay otro audio sonando, lo pausamos
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+          if (currentRadio) currentRadio.checked = false;
+        }
+
+        // Creamos uno nuevo y lo reproducimos
+        const audio = new Audio(src);
+        audio.play();
+
+        currentAudio = audio;
+        currentRadio = radio;
+      });
+    });
+  </script>
+
 </body>
+
 </html>

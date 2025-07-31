@@ -1,8 +1,9 @@
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ventana Pixelada</title>
 
     <!-- Tailwind CSS vía CDN -->
@@ -17,58 +18,77 @@
     <!-- Tailwind config -->
     <script>
         tailwind.config = {
-        theme: {
-            extend: {
-            fontFamily: {
-                pixel: ['"Press Start 2P"', 'monospace']
-            },
+            theme: {
+                extend: {
+                    fontFamily: {
+                        pixel: ['"Press Start 2P"', 'monospace']
+                    },
+                }
             }
-        }
         }
     </script>
 
     <style>
         #torta {
-        position: relative;
+            position: relative;
         }
+
         #encendedor-img {
-        cursor: grab;
-        z-index: 10;
+            cursor: grab;
+            z-index: 10;
         }
     </style>
-    </head>
-    <body class="bg-white flex items-center justify-center min-h-screen font-pixel">
+</head>
 
-    <div class="relative bg-black p-1 border-[16px] rounded-lg border-black shadow-[inset_0_0_0_4px_#ffffff] w-[700px] h-[650px]">
+<body class="bg-white flex items-center justify-center min-h-screen font-pixel">
+
+    <div
+        class="relative bg-black p-1 border-[16px] rounded-lg border-black shadow-[inset_0_0_0_4px_#ffffff] w-[700px] h-[650px]">
         <div class="h-[calc(100%-40px)] p-4 relative">
-        <div class="grid grid-cols-5 grid-rows-7 h-full gap-3">
-            
-            <!-- pantalla del menu -->
-            <div id="pantalla-torta" class="col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center flex align-center justify-center place-items-center relative">
-            
-            <!-- Imagen de la torta -->
-            <button id="torta">
-                <img id="torta-img" src="elementos/torta_apagada.png" class="w-[300px] h-auto object-cover">
-            </button>
+            <div class="grid grid-cols-5 grid-rows-7 h-full gap-3">
 
-            <!-- Encendedor arrastrable -->
-            <img id="encendedor-img" src="elementos/encendedor.png" draggable="true" class="h-[100px] absolute bottom-4 right-4" />
+                <!-- pantalla del menu -->
+                <div id="pantalla-torta"
+                    class="col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/cuadricula.png)] bg-cover bg-center flex align-center justify-center place-items-center relative">
 
-            </div>
-            <!-- fin pantalla del menu -->
+                    <!-- Imagen de la torta -->
+                    <button id="torta">
+                        <img id="torta-img" src="elementos/torta_apagada.png" class="w-[300px] h-auto object-cover">
+                    </button>
 
-            <div class="col-span-5 row-span-2 row-start-6 rounded-lg">
-            <div class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white">
-                <div class="col-span-2 place-items-center rounded-lg">
-                <img src="icons/icon_carnet.png" class="w-full align-center"> 
+                    <!-- Encendedor arrastrable -->
+                    <img id="encendedor-img" src="elementos/encendedor.png" draggable="true"
+                        class="h-[100px] absolute bottom-4 right-4" />
+
                 </div>
-                <div class="col-span-5 col-start-3 bg-[#ffffff]">
-                <p class="p-5">parecia una foto mia? casi, pero tienes que prenderla!</p>
-                </div>
-            </div>
-            </div>
+                <!-- fin pantalla del menu -->
 
-        </div>
+                <div class="col-span-5 row-span-2 row-start-6 rounded-lg">
+
+                    <div id="abajo-torta-1" class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white">
+
+                        <div class="col-span-2 place-items-center rounded-lg">
+                            <img src="icons/icon_carnet.png" class="w-full align-center">
+                        </div>
+                        <div class="col-span-5 col-start-3 bg-[#ffffff]">
+                            <p class="p-5">parecia una foto mia? casi, pero tienes que prenderla!</p>
+                        </div>
+                    </div>
+
+                    <div id="abajo-torta-2"
+                        class="grid grid-cols-7 grid-rows-1 rounded-lg border-[5px] border-white hidden">
+
+                        <div class="col-span-2 place-items-center  bg-[#ffffff]">
+                            <img src="icons/icon_bailando.gif" class="w-[65%] align-center">
+                        </div>
+                        <div class="col-span-5 col-start-3 bg-[#ffffff]">
+                            <p class="p-5">siii ya esta lista para la celebracion </p>
+                            <a href="menu.html" class="nes-btn absolute bottom-[-20px] right-[20px] "> ir al menu</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -79,21 +99,27 @@
         const tortaImg = document.getElementById('torta-img');
 
         encendedor.addEventListener('dragstart', (e) => {
-        e.dataTransfer.setData("text/plain", "encendedor");
+            e.dataTransfer.setData("text/plain", "encendedor");
         });
 
         torta.addEventListener('dragover', (e) => {
-        e.preventDefault();
+            e.preventDefault();
         });
 
         torta.addEventListener('drop', (e) => {
-        e.preventDefault();
-        const data = e.dataTransfer.getData("text/plain");
-        if (data === "encendedor") {
-            // Cambia la imagen de la torta
-            tortaImg.src = "elementos/torta.gif";
-        }
+            e.preventDefault();
+            const data = e.dataTransfer.getData("text/plain");
+            if (data === "encendedor") {
+                // Cambia la imagen de la torta
+                tortaImg.src = "elementos/torta.gif";
+                // Muestra el mensaje de abajo
+                document.getElementById('abajo-torta-1').classList.add('hidden');
+                document.getElementById('abajo-torta-2').classList.remove('hidden');
+            }
         });
+
+
     </script>
-    </body>
-    </html>
+</body>
+
+</html>
