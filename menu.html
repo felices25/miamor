@@ -52,15 +52,30 @@
     </button>
     <dialog class="nes-dialog is-rounded" id="menu-esquina">
       <form method="dialog">
-        <p class="title"> BOTON DE EMERGENCIA </p>
+        <p class="title"> SALIR DEL JUEGO</p>
         <br>
-        <p>volver al inicio?</p>
+        <p>encontraste todos los items escondidos?</p>
         <br>
         <menu class="dialog-menu">
-          <button class="nes-btn">No</button>
-          <button class="nes-btn is-primary">Si</button>
+          <button class="nes-btn is-error onclick" onclick="document.getElementById('rpta-no').showModal();">No</button>
+          <button class="nes-btn is-primary onclick" onclick="document.getElementById('rpta-si').showModal();">Si, 100%
+            segura </button>
         </menu>
       </form>
+    </dialog>
+    <dialog class="nes-dialog is-rounded" id="rpta-no">
+      <form method="dialog">
+        <p class="title"> Sigue buscando!!!</p>
+        <br>
+        <p>o pideme una pista por whatsapp :D </p>
+        <br>
+        <a href="menu.html" class="nes-btn ">sigue buscando!</a>
+
+      </form>
+    </dialog>
+    <dialog class="nes-dialog is-rounded w-[400px] h-[400px] bg-[url(elementos/meme.jpeg)] bg-cover bg-center"
+      id="rpta-si">
+      <p> </p>
     </dialog>
   </section>
 
@@ -103,9 +118,10 @@
             </div>
             <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
 
-              <p class="p-5">Encontraste el camino! bienvenida al menu principal, descubre los elementos escondidos y
-                haz clic en ellos</p>
-              
+              <p class="p-5">Encontraste el camino! bienvenida a mi cuarto virtual, te deje varios regalos escondidos,
+                encuentralos todos!
+              </p>
+
 
             </div>
           </div>

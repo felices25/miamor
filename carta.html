@@ -44,6 +44,39 @@
 </head>
 
 <body class="bg-white flex items-center justify-center min-h-screen font-pixel">
+  <section>
+    <button type="button" class="nes-btn is-error absolute top-2 right-2"
+      onclick="document.getElementById('menu-esquina').showModal();">
+      ?
+    </button>
+    <dialog class="nes-dialog is-rounded" id="menu-esquina">
+      <form method="dialog">
+        <p class="title"> SALIR DEL JUEGO</p>
+        <br>
+        <p>encontraste todos los items escondidos?</p>
+        <br>
+        <menu class="dialog-menu">
+          <button class="nes-btn is-error onclick" onclick="document.getElementById('rpta-no').showModal();">No</button>
+          <button class="nes-btn is-primary onclick" onclick="document.getElementById('rpta-si').showModal();">Si, 100%
+            segura </button>
+        </menu>
+      </form>
+    </dialog>
+    <dialog class="nes-dialog is-rounded" id="rpta-no">
+      <form method="dialog">
+        <p class="title"> Sigue buscando!!!</p>
+        <br>
+        <p>o pideme una pista por whatsapp :D </p>
+        <br>
+        <a href="menu.html" class="nes-btn ">sigue buscando!</a>
+
+      </form>
+    </dialog>
+    <dialog class="nes-dialog is-rounded w-[400px] h-[400px] bg-[url(elementos/meme.jpeg)] bg-cover bg-center"
+      id="rpta-si">
+      <p> </p>
+    </dialog>
+  </section>
 
   <div
     class="relative bg-black p-1 border-[16px] rounded-lg border-black shadow-[inset_0_0_0_4px_#ffffff] w-[700px] h-[650px]">
@@ -83,8 +116,7 @@
           class="col-span-5 row-span-5 rounded-lg border-2 border-white bg-[url(elementos/patio.png)] bg-cover bg-center place-items-center flex justify-center hidden ">
 
           <img src="elementos/conejito_gif.gif" class="w-[260px] absolute bottom-[220px] left-[135px] ">
-          <button id="conejito-menu" class="nes-btn isprimary absolute top-[30px] right-[20px]"> volver al
-            inicio</button>
+
 
 
         </div>
@@ -128,8 +160,7 @@
             <div class="col-span-5 col-start-3 bg-[#ffffff]  ">
 
               <p class="p-5">por lo menos es tierno, pero ahora no te queda otra que buscar la copia escondida</p>
-              <a href="menu.html"
-                                class="nes-btn absolute bottom-[-10px] right-[20px] "> ir al menu</a>
+              <a href="menu.html" class="nes-btn absolute bottom-[-10px] right-[20px] "> ir al menu</a>
 
             </div>
           </div>
